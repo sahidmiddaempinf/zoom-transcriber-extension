@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Zoom Transcriber Extension",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://*.zoom.us/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.zoom.us/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
